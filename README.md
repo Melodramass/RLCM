@@ -7,6 +7,10 @@
 
 ## RLCM overview
 
+<p align="center">
+  <img src="images/rlcm.png" alt="RLCM overview">
+</p>
+
 **RLCM** (Reinforcement Learning with Confidence Margin) is a calibration-aware RL framework. A lightweight probe predicts, from the policy's hidden states, how likely each truncated reasoning prefix is to reach the correct final answer. The training reward augments answer correctness with a margin term that widens the confidence gap between correct and incorrect intermediate states within the same trajectory:
 
 ```
