@@ -1,0 +1,34 @@
+{
+  "run_name": "gpqa_diamond",
+  "model_path": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "data_files": [
+    "deepscaler/data/gpqa_diamond.parquet"
+  ],
+  "step1": {
+    "n_samples": 4,
+    "temperature": 0.6,
+    "max_tokens": 8000
+  },
+  "step2": {
+    "budgets": [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000],
+    "n_forced": 1,
+    "forced_max_tokens": 64
+  },
+  "step3": {
+    "max_batch_quota": 120000,
+    "max_batch_size": 32
+  },
+  "step4": {
+    "enabled": true,
+    "split_mode": "prompt",
+    "val_split": 0.2,
+    "epochs": 100,
+    "batch_size": 64,
+    "patience": 30
+  },
+  "gpu": {
+    "tensor_parallel_size": 4,
+    "gpu_memory_utilization": 0.9
+  }
+}
+
